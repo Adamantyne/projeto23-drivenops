@@ -24,15 +24,18 @@ services:
     container_name: react_app
     build: ./front-end
     volumes:
-      - volumes_react:/var/www/html
+      - build_react:/var/www/html
+    depends_on:
+      - db
+      - node_app
 
-  nginx:
-    container_name: nginx
+  nginx_server:
+    container_name: nginx_server
     build: ./nginx
     ports:
-      - 8080:80
+      - 80:80
     volumes:
-      - volumes_react:/var/www/html
+      - build_react:/var/www/html
     depends_on:
       - db
       - node_app
@@ -40,4 +43,4 @@ services:
 
 volumes:
   pg:
-  volumes_react:
+  build_react:
