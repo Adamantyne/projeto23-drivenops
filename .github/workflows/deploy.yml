@@ -30,5 +30,4 @@ jobs:
           file_name: .env
           fail_on_empty: true
       
-      - name: run
-        run: sudo docker-compose down && sudo docker-compose up -d
+      
