@@ -29,7 +29,7 @@ jobs:
           directory: front-end/
           file_name: .env
           fail_on_empty: true
-      - name: build
-        run: docker-compose build
+      - name: build-aws
+        run: sudo docker-compose build
       - name: run
-        run: docker-compose down && docker-compose up -d
+        run: sudo docker-compose down && sudo docker-compose up -d
